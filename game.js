@@ -57,20 +57,29 @@ Oveja.prototype.actualizar = function oveja_actualizar(dt) {
 		delta_y = delta_y + f*dist_y/dist;
 	});
 	
+
+
+
 	ovejas.forEach(function (oveja) {
                 dist_x = (oveja.x - this.x);
                 dist_y = (oveja.y - this.y);
                 dist_al_cuadrado = (dist_x*dist_x + dist_y*dist_y);
-                dist = Math.sqrt(dist_al_cuadrado);
+
+                 dist = Math.sqrt(dist_al_cuadrado);
+
+	If dist > 75 {
+ 		f=0;
+	}
+
+			Else {
 
                 f = -k_oveja/dist_al_cuadrado;
 
-                delta_x = delta_x + f*dist_x/dist;
+	}
+	  	delta_x = delta_x + f*dist_x/dist;
                 delta_y = delta_y + f*dist_y/dist;
         });
 
-
-	
 
 	this.x = this.x + delta_x*dt;
 	this.y = this.y + delta_y*dt;
